@@ -4,6 +4,7 @@ const passport = require('passport');
 // The root route renders our only view
 router.get('/', function(req, res) {
   // Where do you want to go for the root route
+  res.render('index') // looks at views > ejs file
 });
 
 // Google OAuth login route
@@ -16,7 +17,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/', // where do you want the client to go after you login 
+    successRedirect : '/quests', // where do you want the client to go after you login 
     failureRedirect : '/' // where do you want the client to go if login fails
   }
 ));
