@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Create your User Model
 
   const userSchema = new mongoose.Schema({
+    _id: {
+      type: Schema.Types.ObjectId
+    },
     name: String,
-    email: String,
     googleId: String,
-    physical: Number,
-    intellectual: Number,
-    social: Number,
-  }, {
+    experience: Number,
     timestamps: true
   });
   
