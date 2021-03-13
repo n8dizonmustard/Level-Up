@@ -10,14 +10,22 @@ const commentSchema = new mongoose.Schema({
     ref: 'User'
   }],
   userName: String,
-  timestamps: true
+});
+
+// Create your Quest Item Model
+const questItemSchema = new mongoose.Schema({
+  item: String,
+  difficulty: {type: Number, min: 1, max: 5, default: 3}
 });
 
 // Create your Quest Model
 const questSchema = new mongoose.Schema({
   _id: Number,
-  name: String,
-  questItems: [],
+  name: {
+    type: String,
+    required: true,
+  },
+  questItems: [questItemSchema],
   rewardXp: Number,
   user: {
     type: Schema.Types.ObjectId,
@@ -25,6 +33,5 @@ const questSchema = new mongoose.Schema({
   },
   comments: [commentSchema]
 });
-
 
 module.exports = mongoose.model('Quest', questSchema);

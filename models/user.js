@@ -10,7 +10,6 @@ const Schema = mongoose.Schema;
     name: String,
     googleId: String,
     experience: Number,
-    timestamps: true
   });
   
   module.exports = mongoose.model('User', userSchema);
