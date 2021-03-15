@@ -15,6 +15,7 @@ passport.use(new GoogleStrategy({
     // console.log(profile, "<----- Profile")
     // Fetch the User from the database and provide them back to passport 
     User.findOne({'googleId': profile.id}, function(err, user){
+      console.log(user, "this is user")
       if(err) return cb(err);
 
       if(user){
@@ -42,6 +43,7 @@ passport.use(new GoogleStrategy({
 
 // This puts the user's id in the session cookie
 passport.serializeUser(function(user, done) {
+  console.log(user.id)
   done(null, user.id);
 });
 

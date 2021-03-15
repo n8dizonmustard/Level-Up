@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 // Create your Comments Model
 const commentSchema = new mongoose.Schema({
-  _id: String,
   text: String,
   userId: [{ // holds the ID of the user that submitted the comment
     type: Schema.Types.ObjectId,
@@ -14,19 +13,14 @@ const commentSchema = new mongoose.Schema({
 
 // Create your Quest Item Model
 const questItemSchema = new mongoose.Schema({
-  item: String,
-  difficulty: {type: Number, min: 1, max: 5, default: 3}
+  qItem: String,
+  difficulty: Number
 });
 
 // Create your Quest Model
 const questSchema = new mongoose.Schema({
-  _id: Number,
-  name: {
-    type: String,
-    required: true,
-  },
-  questItems: [questItemSchema],
-  rewardXp: Number,
+  qName: String,
+  qItems: [questItemSchema],
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'

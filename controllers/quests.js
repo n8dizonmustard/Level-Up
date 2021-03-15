@@ -1,18 +1,32 @@
 const Quest = require('../models/quest');
-const User = require('../models/user');
+const User = require('../models/user'); 
 
 module.exports = {
     questsIndex,
     newQuest,
-    createQuest
+    createQuest,
+    deleteQuest,
+    showQuest
 };
 
+function showQuest(req, res){
+    Quest.findById(req.params.id, function(err, quest){
+        console.log(quest, 'this is the quest');
+        res.render('quests/show', {
+            quest
+        });
+    });
+}
+
+function deleteQuest(req, res){
+    Quest.findByIdAndDelete(req.params.id, function(){
+        res.redirect('/quests');
+    });
+}
+
 function createQuest(req, res){
-    let quest = new Quest(req.body);
-    console.log(quest)
-    // Assign the logged in user's id
-    quest.user = req.user._id;
-    console.log(req.user.user_id)
+    const quest = new Quest(req.body);
+    // quest.user = req.user._id;
     quest.save(function(err){
         if(err) return res.render('quests/new');
         res.redirect('/quests');

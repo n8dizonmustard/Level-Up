@@ -10,7 +10,11 @@
     <ul>
       <% quests.forEach(function(q) { %>
         <li>
-          <a href="/quests/<%= q.id %>"><%= q.name %></a>
+          <a href="/quests/<%= q.id %>"><%= q.qName %></a>
+          <form action="/quests/<%= q.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit">X</button>
+        </form>
         </li>
       <% }); %>
     </ul>

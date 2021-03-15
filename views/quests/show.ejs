@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+  <h1><%= quest.qName %></h1>
+  <nav>
+    <a href="/quests/">Home</a>
+    <a href="/quests/new">New Quest</a>
+    <a href="/logout">Log Out</a>
+  </nav>
+  <body>
+    <% quest.qItems.forEach(function(i) { %>
+    <ul>
+        <li><%= i.qItem %> - <%= i.difficulty %></li>
+    </ul>
+    <% }); %>
+  </body>
+
+<%- include('../partials/footer') %>
