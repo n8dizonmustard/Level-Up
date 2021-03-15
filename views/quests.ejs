@@ -4,7 +4,16 @@
   <nav>
     <a href="/quests/new">New Quest</a>
     <a href="/logout">Log Out</a>
-
   </nav>
+  <body>
+    <h2>Quests</h2>
+    <ul>
+      <% quests.forEach(function(q) { %>
+        <li>
+          <a href="/quests/<%= q.id %>"><%= q.name %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
 
   <%- include('./partials/footer') %>

@@ -4,17 +4,18 @@
     <nav>
         <a href="/quests">All Quests</a>
         <a href="/logout">Log Out</a>
-    </nav>
+    </nav><br>
     <form action="/quests" method="POST">
-    <input type="text" name="quest" placeholder="Quest Name"><br>
+    <input type="text" name="quest" placeholder="Quest Name">
     <p>Difficulty Level</p>
-    <select name="difficulty">
+    <select name="rewardXp">
         <option value="1">Trivial</option>
         <option value="2">Easy</option>
         <option value="3">Moderate</option>
         <option value="4">Arduous</option>
         <option value="5">Challenging</option>
     </select>
+    <input type="submit" value="Add Quest">
     </form>
 
 <%- include('../partials/footer') %>

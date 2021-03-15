@@ -14,7 +14,6 @@ passport.use(new GoogleStrategy({
     // a user has logged in via OAuth!
     // console.log(profile, "<----- Profile")
     // Fetch the User from the database and provide them back to passport 
-    console.log(profile, "this is the profile")
     User.findOne({'googleId': profile.id}, function(err, user){
       if(err) return cb(err);
 
