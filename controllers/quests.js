@@ -6,14 +6,28 @@ module.exports = {
     newQuest,
     createQuest,
     deleteQuest,
-    showQuest
+    showQuest,
+    addComment,
 };
 
+
+function addComment(req, res) {
+    Quest.findById(req.params.id, function(err, quest) {
+        
+        quest.comments.push(req.body);
+        console.log(req.body, 'this is req.body')
+        console.log(quest, 'this is the quest')
+        console.log(quest.comments, 'this is the comment')
+        quest.save(function(err) {
+            res.redirect(`/quests/${quest._id}`)
+        });
+    });
+}
+
 function showQuest(req, res){
-    Quest.findById(req.params.id, function(err, quest){
-        console.log(quest, 'this is the quest');
+    Quest.findById(req.params.id, function(err, questDocs){
         res.render('quests/show', {
-            quest
+            quest: questDocs
         });
     });
 }
@@ -26,6 +40,8 @@ function deleteQuest(req, res){
 
 function createQuest(req, res){
     const quest = new Quest(req.body);
+    console.log(req.body, 'this is req.body')
+    console.log(req.user, 'this is req.user')
     // quest.user = req.user._id;
     quest.save(function(err){
         if(err) return res.render('quests/new');

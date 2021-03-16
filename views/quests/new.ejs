@@ -6,16 +6,17 @@
         <a href="/logout">Log Out</a>
     </nav><br>
     <form action="/quests" method="POST">
-        <input type="text" name="qName" placeholder="Quest Name"><br><br>
-        <input type="text" name="qItem" placeholder="Quest Item">
+        <input type="text" name="qName" placeholder="Quest">
         <select name="difficulty">
-            <option value="Trivial">Trivial</option>
-            <option value="Easy">Easy</option>
-            <option value="Moderate">Moderate</option>
-            <option value="Arduous">Arduous</option>
-            <option value="Challenging">Challenging</option>
+            <option value="1">Trivial</option>
+            <option value="2">Easy</option>
+            <option value="3">Moderate</option>
+            <option value="4">Arduous</option>
+            <option value="5">Challenging</option>
         </select><br><br>
-        <button type="button">Add Quest Item</button>
+        <p>Complete Before: </p>
+        <input type="date" name="dueBy"><br><br><br>
+        <input type="text" name="notes" placeholder="Quest Notes"><br><br>
         <input type="submit" value="Create Quest">
     </form>
 

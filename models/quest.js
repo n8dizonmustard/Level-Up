@@ -8,19 +8,15 @@ const commentSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
-  userName: String,
-});
-
-// Create your Quest Item Model
-const questItemSchema = new mongoose.Schema({
-  qItem: String,
-  difficulty: Number
+  userName: String
 });
 
 // Create your Quest Model
 const questSchema = new mongoose.Schema({
   qName: String,
-  qItems: [questItemSchema],
+  notes: String,
+  difficulty: Number,
+  dueBy: Date,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
