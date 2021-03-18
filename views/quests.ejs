@@ -1,23 +1,24 @@
 <%- include('./partials/header') %>
 
-  <h1>Welcome, User!</h1>
-  <nav>
-    <a href="/quests/new">New Quest</a>
-    <a href="/logout">Log Out</a>
-  </nav>
-  <body>
-    <h2>My Quests</h2>
-    <ul>
-      <% quests.forEach(function(q) { %>
-        <li>
-          <a href="/quests/<%= q.id %>"><%= q.qName %></a> - <%= q.difficulty %> XP
-          <form action="/quests/<%= q.id %>?_method=DELETE"
-            class="delete-form" method="POST">
-            <button type="submit">X</button>
-          </form>
-        </li>
-      <% }); %>
-    </ul>
-  </body>
+<h1>Quest Log</h1>
+<navbar>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="/quests/new">New Quest</a></li>
+    <li class="nav-item"><a href="/logout">Log Out</a></li>
+  </ul>
+</navbar>
+  <ul>
+    <% quests.forEach(function(q) { %>
+      <li>
+        <a href="/quests/<%= q.id %>"><%= q.qName %></a>
+        - <%= q.difficulty %><br>
+        <%= q.notes %>
+        <form action="/quests/<%= q.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">Complete Quest</button>
+        </form>
+      </li>
+  <% }); %>
+  </ul>
 
-  <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

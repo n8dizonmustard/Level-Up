@@ -1,23 +1,25 @@
 <%- include('../partials/header') %>
 
-    <h1>New Quest</h1>
-    <nav>
-        <a href="/quests">All Quests</a>
-        <a href="/logout">Log Out</a>
-    </nav><br>
-    <form action="/quests" method="POST">
-        <input type="text" name="qName" placeholder="Quest">
-        <select name="difficulty">
-            <option value="1">Trivial</option>
-            <option value="2">Easy</option>
-            <option value="3">Moderate</option>
-            <option value="4">Arduous</option>
-            <option value="5">Challenging</option>
-        </select><br><br>
-        <p>Complete Before: </p>
-        <input type="date" name="dueBy"><br><br><br>
-        <input type="text" name="notes" placeholder="Quest Notes"><br><br>
-        <input type="submit" value="Create Quest">
-    </form>
+<h1>New Quest</h1>
+<navbar>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="/quests">Quest Log</a></li>
+      <li class="nav-item"><a href="/logout">Log Out</a></li>
+    </ul>
+  </navbar><br>
+<form action="/quests" method="POST">
+    <input type="text" name="qName" placeholder="Quest">
+    <select name="difficulty">
+        <option value="Trivial">Trivial</option>
+        <option value="Easy">Easy</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Arduous">Arduous</option>
+        <option value="Challenging">Challenging</option>
+    </select><br><br>
+    <p>Start Date: </p>
+    <input type="date" name="dueBy" required><br><br><br>
+    <textarea type="text" placeholder="Quest Notes" name="notes"></textarea><br><br>
+    <input type="submit" value="Create Quest">
+</form>
 
 <%- include('../partials/footer') %>

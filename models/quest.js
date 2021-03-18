@@ -4,10 +4,7 @@ const Schema = mongoose.Schema;
 // Create your Comments Model
 const commentSchema = new mongoose.Schema({
   text: String,
-  userId: [{ // holds the ID of the user that submitted the comment
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }],
+  userId: Schema.Types.ObjectId,
   userName: String
 });
 
@@ -15,12 +12,9 @@ const commentSchema = new mongoose.Schema({
 const questSchema = new mongoose.Schema({
   qName: String,
   notes: String,
-  difficulty: Number,
+  difficulty: String,
   dueBy: Date,
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
+  user: Schema.Types.ObjectId,
   comments: [commentSchema]
 });
 

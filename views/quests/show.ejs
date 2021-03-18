@@ -1,25 +1,29 @@
 <%- include('../partials/header') %>
 
-  <h1><%= quest.qName %></h1>
-  <nav>
-    <a href="/quests/">Home</a>
-    <a href="/quests/new">New Quest</a>
-    <a href="/logout">Log Out</a>
-  </nav>
-  <body>
-    <h3>Rewarded XP: <%= quest.difficulty %></h3>
-    <h3>Complete by: <%= quest.dueBy.toDateString() %></h3>
-    <p><%= quest.notes %></p><br>
-    <form action="/quests/<%= quest.id %>" method="POST">
-      <textarea type="text" placeholder="Your Quest Comment" name="text"></textarea><br>
-      <input type="submit" value="Add Comment">
-    </form>
-    <h2>Comments:</h2>
-      <% quest.comments.forEach(function(c) { %>
-        <li>
-          <%= c.userName %>: <%= c.text %>
-        </li>
-      <% }); %>
-  </body>
+<h1><%= quest.qName %></h1>
+<navbar>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="/quests">Quest Log</a></li>
+    <li class="nav-item"><a href="/logout">Log Out</a></li>
+  </ul>
+</navbar>
+  <h3>Difficulty: <%= quest.difficulty %></h3>
+  <h3>Quest Received On: <%= quest.dueBy.toDateString() %></h3>
+  <p><%= quest.notes %></p><br>
+  <form action="/comments/<%= quest.id %>" method="POST">
+    <textarea type="text" placeholder="What is on your mind?" name="text"></textarea><br>
+    <input type="submit" value="Add Comment">
+  </form>
+  <h2>Comments:</h2>
+    <% quest.comments.forEach(function(c) { %>
+      <li>
+        <%= c.userName %>: <%= c.text %>
+        <% if (c.userId.equals(user._id)) { %>
+          <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form>
+        <% } %>
+      </li>
+    <% }); %>
 
 <%- include('../partials/footer') %>

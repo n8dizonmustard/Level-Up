@@ -20,6 +20,7 @@ require('./config/passport');
 
 var indexRoutes = require('./routes/index');
 var questsRoutes = require('./routes/quests');
+var commentsRoutes = require('./routes/comments');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,6 +41,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 
 // Add this middleware BELOW passport middleware
@@ -52,6 +57,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/quests', questsRoutes);
+app.use('/comments', commentsRoutes);
 
 
 // invalid request, send 404 page

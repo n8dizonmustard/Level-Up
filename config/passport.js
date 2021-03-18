@@ -21,7 +21,7 @@ passport.use(new GoogleStrategy({
       if(user){
         return cb(null, user);
       } else {
-        // if we didn't find the student(user) go ahead and create them
+        // if we didn't find the user go ahead and create them
         const newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
@@ -52,7 +52,7 @@ passport.deserializeUser(function(id, done) {
   // When you call this done function passport assigns the user document to req.user, which will 
   // be availible in every Single controller function, so you always know the logged in user
   User.findById(id, function(err, user){
-    done(err, user); // this assigns our student document to req.user, which we can use
+    done(err, user); // this assigns our user document to req.user, which we can use
     // in our controller functions to figure out who is loged in
   })
 });
