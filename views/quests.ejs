@@ -14,10 +14,12 @@
         - <%= q.difficulty %><br>
         </div>
         <%= q.notes %>
-        <form action="/quests/<%= q.id %>?_method=DELETE"
-          class="delete-form" method="POST">
-          <button type="submit">Complete Quest</button>
-        </form>
+        <% if (q.user.equals(user._id)) { %>
+          <form action="/quests/<%= q.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit">Complete Quest</button>
+          </form>
+        <% } %>
       </div>
   <% }); %>
     </div>
