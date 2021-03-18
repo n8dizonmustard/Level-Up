@@ -6,10 +6,12 @@
     <li class="nav-item"><a href="/logout">Log Out</a></li>
   </ul>
 </navbar>
-<h1><%= quest.qName %></h1>
-  <h3>Difficulty: <%= quest.difficulty %></h3>
-  <h3>Quest Received On: <%= quest.dueBy.toDateString() %></h3>
-  <p><%= quest.notes %></p><br>
+<div class="show-quest">
+  <h1 id="show-quest-title"><%= quest.qName %></h1>
+    <h3>Difficulty: <%= quest.difficulty %></h3>
+    <h3>Quest Received On: <%= quest.dueBy.toDateString() %></h3>
+    <p><%= quest.notes %></p><br>
+</div>
   <form action="/comments/<%= quest.id %>" method="POST">
     <textarea type="text" placeholder="What is on your mind?" name="text"></textarea><br>
     <input type="submit" value="Add Comment">

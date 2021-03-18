@@ -13,11 +13,11 @@
         <div class="flex-title"><a href="/quests/<%= q.id %>"><%= q.qName %></a>
         - <%= q.difficulty %><br>
         </div>
-        <%= q.notes %>
+        <p class="q-notes"><%= q.notes %></p>
         <% if (q.user.equals(user._id)) { %>
           <form action="/quests/<%= q.id %>?_method=DELETE"
             class="delete-form" method="POST">
-            <button type="submit">Complete Quest</button>
+            <button class="complete-quest" type="submit">Complete Quest</button>
           </form>
         <% } %>
       </div>

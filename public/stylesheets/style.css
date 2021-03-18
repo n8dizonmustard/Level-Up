@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&display=swap');
 
 @media(min-width: 480px){
   .flex-container{
@@ -17,7 +17,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
-  font-family: 'Redressed', cursive;
+  font-family: 'Judson', serif;
   background-attachment: fixed;
 }
 
@@ -66,14 +66,43 @@ h1 {
   background-color: white;
   padding: 10px 20px;
   font-size: 28px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .flex-item {
   background-color: silver;
   margin: 1%;
-  padding: 1%;
   flex: 1;
   opacity: 90%;
-  font-size: 24px;
   min-width: 300px;
+  border-radius: 10px;
+}
+
+.q-notes {
+  font-size: 24px;
+  padding: 0 3%;
+}
+
+.complete-quest {
+  padding: 3%;
+  font-family: 'Judson', serif;
+  font-size: 20px;
+  margin: 3%;
+  justify-content: flex-end;
+  background-color: goldenrod;
+  opacity: initial;
+}
+
+/* ----- Show Quest Page ----- */
+
+.show-quest {
+  background-color: burlywood;
+  width: 50%;
+  opacity: 75%;
+}
+
+#show-quest-title {
+  background-color: maroon;
 }
