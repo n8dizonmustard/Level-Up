@@ -1,34 +1,27 @@
-# passport-boilerplate
+# Level Up
+This app allows users to create and keep track of their quests - in real-life, video games, or table-top role-playing games - in order to organize and prioritize tasks efficiently. 
 
+![level up landing page](./screenshots/login-landing-page.png "login page")
+![level up landing page](./screenshots/all-quests.png "main page")
+---
+## Technologies Used:
+* JavaScript
+* CSS
+* MongoDB (Atlas)
+* Node
+* Express
+* Mongoose
+* Heroku
+* Google OAuth
+---
+## Getting Started
+* Launch the app here: [Level Up](https://level-up-ga.herokuapp.com/)
 
-This is your passport boilerplate.
+* [Trello Board](https://level-up-ga.herokuapp.com/)
+![level up trello board](./screenshots/trello-board.png "level up trello board")
 
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
-
-
-#### Setup your git repo
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
-
-#### Setup your login
-
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file
-3. Setup the Code in your config passport 
-4. Setup your call back routes in your `routes/index`
-5. Setup a view and test your login!
-
-#### Make a commit 
-
-```git commit -m "setup up oauth and User Model"```
+* Wireframes:
+![all quests wireframe](./screenshots/all-quests-wireframe.png "all quests wireframe")
+![new quest wireframe](./screenshots/new-quest.png "new quest wireframe")
+![level up trello board](./screenshots/trello-board.png "level up trello board")
+![level up trello board](./screenshots/trello-board.png "level up trello board")
