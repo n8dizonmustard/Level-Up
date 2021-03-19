@@ -6,26 +6,32 @@
     <li class="nav-item"><a href="/logout">Log Out</a></li>
   </ul>
 </navbar>
-<div class="show-quest">
-  <h1 id="show-quest-title"><%= quest.qName %></h1>
-    <h3>Difficulty: <%= quest.difficulty %></h3>
-    <h3>Quest Received On: <%= quest.dueBy.toDateString() %></h3>
-    <p><%= quest.notes %></p><br>
+<div class="flex-container-show">
+  <div class="flex-item-show" id="show-quest">
+    <h1 id="show-quest-title"><%= quest.qName %></h1>
+      <div id="show-quest-content">
+        <h3>Difficulty: <%= quest.difficulty %></h3>
+        <h3>Quest Received On: <%= quest.dueBy.toDateString() %></h3>
+        <p class="quest-show-notes"><%= quest.notes %></p><br>
+      </div>
+  </div>
+  <div class="flex-item-show" id="comments">
+    <h2 id="comment-head">Comments:</h2>
+      <% quest.comments.forEach(function(c) { %>
+        <div>
+          <%= c.userName %>: <%= c.text %>
+          <% if (c.userId.equals(user._id)) { %>
+            <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+              <button id="delete-comment" type="submit">Delete Comment</button>
+            </form>
+          <% } %>
+        </div>
+      <% }); %>
+      <form action="/comments/<%= quest.id %>" method="POST">
+        <textarea type="text" rows="5" placeholder="What's up?" name="text"></textarea><br>
+        <input type="submit" class="add-comment" value="Add Comment">
+      </form>
+  </div>
 </div>
-  <form action="/comments/<%= quest.id %>" method="POST">
-    <textarea type="text" placeholder="What is on your mind?" name="text"></textarea><br>
-    <input type="submit" value="Add Comment">
-  </form>
-  <h2>Comments:</h2>
-    <% quest.comments.forEach(function(c) { %>
-      <li>
-        <%= c.userName %>: <%= c.text %>
-        <% if (c.userId.equals(user._id)) { %>
-          <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-          </form>
-        <% } %>
-      </li>
-    <% }); %>
 
 <%- include('../partials/footer') %>

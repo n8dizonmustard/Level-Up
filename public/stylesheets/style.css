@@ -88,21 +88,93 @@ h1 {
 .complete-quest {
   padding: 3%;
   font-family: 'Judson', serif;
-  font-size: 20px;
+  font-size: 16px;
   margin: 3%;
-  justify-content: flex-end;
   background-color: goldenrod;
-  opacity: initial;
+  border: 2px solid black;
+  border-radius: 10px;
+  position: relative;
+  right: inherit;
 }
 
 /* ----- Show Quest Page ----- */
 
-.show-quest {
-  background-color: burlywood;
+.flex-container-show {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.flex-item-show {
   width: 50%;
+  flex: 1;
+  margin: 10px
+}
+
+#show-quest {
+  background-color: #0768B2;
   opacity: 75%;
+  border-radius: 10px;
+  color: white;
 }
 
 #show-quest-title {
-  background-color: maroon;
+  background-color: black;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  bottom: 21px;
 }
+
+#comments {
+  background-color: silver;
+  opacity: 90%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 95%;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: 'Judson', serif;
+  font-size: 20px;
+}
+
+#show-quest-content {
+  padding: 10px;
+  position: relative;
+  bottom: 50px;
+}
+
+.quest-show-notes {
+  font-size: 30px;
+  text-align: center;
+}
+
+#delete-comment {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  color: red;
+}
+
+.add-comment {
+  padding: 2%;
+  font-family: 'Judson', serif;
+  font-size: 14px;
+  margin: 3%;
+  background-color: goldenrod;
+  border: 2px solid black;
+  border-radius: 10px;
+  position: relative;
+  right: inherit;
+}
+
+/* ----- LOGIN PAGE ----- */
+
