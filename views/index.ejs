@@ -1,14 +1,14 @@
 <%- include('./partials/header') %>
 
-<h1>Level Up</h1>
-<div class="navbar-fixed">
-  <nav>
-  <% if (user) { %>
-    <a href="/logout">Log Out</a>
-  <% } else { %>
-    <a href="/auth/google">Login with Google</a>
-  <% } %>
-  </nav>
+<div class="login-pane">
+  <h1 id="login-title">Level Up</h1>
+    <% if (user) { %>
+      <a href="/logout" id="log-option">Log Out</a>
+    <% } else { %>
+      <a href="/auth/google" id="log-option">Login with Google</a>
+    <% } %>
+  <p class="welcome">Welcome to Level Up! This quest-tracking application can help anyone keep track of their active quests.</p>
+  <img src="https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png" id="d20">
 </div>
 
 <%- include('./partials/footer') %>
