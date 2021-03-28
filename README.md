@@ -26,7 +26,7 @@ This app allows users to create and keep track of their quests - in real-life, v
 ![show quest wireframe](./screenshots/show-quest-wireframe.png "show quest wireframe")
 ---
 ## Next Steps
-I'm far from mastering this skill and this entire project was so daunting to me, I had to place so many features and core functionalities into my project's icebox. When I have the time to revisit this app, I'd love to implement the following changes:
+When I have the time to revisit this app, I'd love to implement the following changes:
 1. Filter feature.
 2. Allowing the User to pick an avatar or upload a selfie.
 3. Timestamps for comments.
